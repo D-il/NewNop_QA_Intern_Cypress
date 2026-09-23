@@ -178,6 +178,26 @@ The automation focuses on:
 * End-to-end validation of a complete purchase flow
 * Exploratory testing and clear, reproducible bug reporting
 
-## Bonus
 
-Optional bonus work will be added separately after completing the main assignment tasks.
+## Bonus – Option B: GitHub Actions CI Pipeline
+
+I selected **Option B – CI Pipeline** for the bonus task.
+
+I chose this option because GitHub Actions and CI automation were a new area for me, and I wanted to challenge myself by learning how automated test execution can be integrated into a CI workflow. Successfully setting up the pipeline and running the Cypress test suite through GitHub Actions gave me practical experience with CI automation.
+
+The GitHub Actions workflow automatically runs the Cypress test suite when changes are pushed to the `main` branch or when a pull request is created for the `main` branch.
+
+The workflow performs the following steps:
+
+* Checks out the repository
+* Sets up Node.js
+* Installs project dependencies using `npm ci`
+* Runs the Cypress test suite using `npx cypress run`
+
+The workflow configuration is located at:
+
+```text
+.github/workflows/cypress.yml
+```
+
+The CI pipeline was successfully executed using GitHub Actions, and all **6 Cypress tests passed successfully**.
