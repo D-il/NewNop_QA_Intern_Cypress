@@ -5,6 +5,7 @@ Automated testing project for the SauceDemo web application using Cypress.
 ## Application Under Test
 
 **SauceDemo**
+
 https://www.saucedemo.com/
 
 ## Framework Choice
@@ -17,7 +18,8 @@ I chose **Cypress** for this assignment because it provides a simple and develop
 cypress/
 ├── e2e/
 │   ├── sanity.cy.js
-│   └── login.cy.js
+│   ├── login.cy.js
+│   └── purchase.cy.js
 │
 ├── fixtures/
 │   ├── example.json
@@ -34,6 +36,7 @@ cypress.config.js
 package.json
 package-lock.json
 README.md
+BUG_REPORT.md
 ```
 
 ## Test Data
@@ -65,6 +68,10 @@ This reduces duplicated selectors and keeps the test cases focused on the behavi
 
 ## Current Test Coverage
 
+### Sanity Test
+
+* Verify that the SauceDemo login page loads successfully.
+
 ### Login Flow
 
 The following scenarios have been automated:
@@ -74,19 +81,62 @@ The following scenarios have been automated:
 * Login with empty fields
 * Successful logout
 
+### E2E Purchase Flow
+
+The following purchase flow has been automated:
+
+* Login with valid credentials
+* Add two products to the cart
+* Verify the cart badge count
+* Verify the correct products are in the cart
+* Proceed to checkout
+* Enter checkout information
+* Verify the order summary
+* Verify the item total
+* Complete the order
+* Verify the order confirmation message
+
+### Bug Hunt
+
+The application was explored using the `problem_user` account.
+
+Six issues were documented in `BUG_REPORT.md`, covering:
+
+* Mismatched product images
+* Incorrect product details navigation
+* Checkout Last Name input behaviour
+* Broken About Us navigation
+* Repeated products in the Lazy List
+* Product sorting options that cannot be selected
+
 ## Assertions
 
 The tests use specific assertions to verify expected application behaviour, including:
 
 * Correct URL after successful login
 * `Products` page title
-* Expected error message for invalid credentials
-* Expected error message when username is empty
+* Expected error messages for invalid login attempts
 * Return to the login page after logout
+* Correct cart item count
+* Correct product names in the cart and order summary
+* Correct item total
+* Successful order confirmation
 
-## Test Evidence
+## Bug Reports
 
-Relevant test results were verified through Cypress, and screenshots were captured for passing test scenarios during development.
+Detailed findings from the `problem_user` bug hunt are documented in:
+
+```text
+BUG_REPORT.md
+```
+
+Each reported issue includes:
+
+* Title
+* Steps to reproduce
+* Expected behaviour
+* Actual behaviour
+* Severity
 
 ## Prerequisites
 
@@ -117,12 +167,17 @@ Run all tests in headless mode:
 npx cypress run
 ```
 
-## Planned Coverage
+## Test Approach
 
-The project will be extended with:
+The automation focuses on:
 
-* End-to-end purchase flow
-* Bug investigation using `problem_user`
-* Detailed bug reports
-* Optional API testing
-* Optional GitHub Actions CI
+* Positive and negative test scenarios
+* Reusable test logic using the Page Object Pattern
+* Separate test data using fixtures
+* Specific assertions for expected behaviour
+* End-to-end validation of a complete purchase flow
+* Exploratory testing and clear, reproducible bug reporting
+
+## Bonus
+
+Optional bonus work will be added separately after completing the main assignment tasks.
