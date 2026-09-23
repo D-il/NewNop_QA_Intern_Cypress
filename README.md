@@ -138,6 +138,39 @@ Each reported issue includes:
 * Actual behaviour
 * Severity
 
+## Test Evidence
+
+Screenshots from the test execution and CI pipeline are included in the `screenshots/` directory.
+
+### Cypress Test Results
+
+Login flow test results:
+
+[Cypress Login Tests](screenshots/cypress-tests-passed_login.png)
+
+Sanity test result:
+
+[Cypress Sanity Test](screenshots/cypress-tests-passed_sanity.png)
+
+### E2E Purchase Flow
+
+Order confirmation after successfully completing the purchase flow:
+
+[Purchase Order Confirmation](screenshots/purchase-order-confirmation.png)
+
+### Bug Hunt
+
+Example evidence from the exploratory testing performed using the `problem_user` account:
+
+[Bug Hunt](screenshots/bug-hunt.png)
+
+### GitHub Actions CI
+
+Successful execution of the Cypress test suite through GitHub Actions:
+
+[GitHub Actions Success](screenshots/github-actions-success.png)
+
+
 ## Prerequisites
 
 * Node.js
